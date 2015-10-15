@@ -73,7 +73,7 @@ do
 done
 
 # should we enable logging
-if [ "$LOGGING" != "enabled" ]; then
+if [ "$LOGGING" == "enabled" ]; then
     (rsyslogd -n &)
 fi
 
