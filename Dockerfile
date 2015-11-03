@@ -6,6 +6,7 @@ ENV HAPROXY_VERSION=1.6.1
 
 ADD haproxy.cfg /etc/haproxy/haproxy.cfg.template
 ADD start-haproxy.sh /bin/start-haproxy.sh
+ADD start-simple.sh /bin/start-simple.sh
 
 # Prepare image
 RUN chmod +x /bin/start-haproxy.sh \
