@@ -9,7 +9,7 @@ ADD start-haproxy.sh /bin/start-haproxy.sh
 ADD start-simple.sh /bin/start-simple.sh
 
 # Prepare image
-RUN chmod +x /bin/start-haproxy.sh \
+RUN chmod +x /bin/start-*.sh \
     && add-apt-repository ppa:vbernat/haproxy-1.6 \
     && apt-get update \
     && apt-get install rsyslog haproxy=${HAPROXY_VERSION}* \
