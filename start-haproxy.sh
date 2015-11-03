@@ -28,7 +28,7 @@ fi
 
 # check if we have default backend
 if [ "${DEFAULT}" != "" ]; then
-    echo ""
+    echo "" >> /etc/haproxy/haproxy.cfg
     echo "    default_backend ${DEFAULT}" >> /etc/haproxy/haproxy.cfg
     echo "" >> /etc/haproxy/haproxy.cfg
     unset DEFAULT
@@ -79,7 +79,7 @@ do
       unset CERT CERTIFICATE
   fi
 
-  if [ "${SSL}" != "" ] || [ "$CERTIFICATE" != "" ]; then
+  if [ "${SSL}" != "true" ] || [ "$CERTIFICATE" != "" ]; then
       PARAMS="ssl verify none"
   else
       unset PARAMS
@@ -109,6 +109,7 @@ do
   fi
 
   echo "    server ${BACKEND} ${ADDRESS}:${PORT} check ${PARAMS} ${CERT} ${DNS}" >> /etc/haproxy/haproxy.cfg
+  echo "" >> /etc/haproxy/haproxy.cfg
 
 done
 
