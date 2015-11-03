@@ -79,7 +79,7 @@ do
       unset CERT CERTIFICATE
   fi
 
-  if [ "${SSL}" != "true" ] || [ "$CERTIFICATE" != "" ]; then
+  if [ "${SSL}" == "true" ] || [ "$CERTIFICATE" != "" ]; then
       PARAMS="ssl verify none"
   else
       unset PARAMS
